@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>👥 Lista de Usuarios</h2>
+</div>
+
+<div *ngIf="cargando" class="loader">🔄 Cargando usuarios...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table class="tabla" *ngIf="!cargando && usuarios.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of usuarios">
+      <td>{{ u._id }}</td>
+      <td>{{ u.name }}</td>
+      <td>{{ u.email }}</td>
+      <td>
+        <span [ngClass]="{
+          'badge-admin': u.role === 'admin',
+          'badge-user': u.role === 'user'
+        }">{{ u.role }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="!cargando && usuarios.length === 0">🚫 No hay usuarios registrados</p>
+

@@ -1,0 +1,57 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo degradado en toda la app */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6ee7b7, #3b82f6, #9333ea);
+  background-size: 300% 300%;
+  animation: gradientBG 12s ease infinite;
+}
+
+/* Animación del gradiente */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ajuste del contenedor principal */
+main {
+  padding: 20px;
+}
+
+/* Centrado elegante en login/register */
+.login-container,
+.register-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Pequeña animación al cargar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

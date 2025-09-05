@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <ul>
+    <li><a routerLink="/productos" routerLinkActive="active">Productos</a></li>
+    <li *ngIf="isLoggedIn()">
+      <a routerLink="/envios" routerLinkActive="active">Envíos</a>
+    </li>
+    <li *ngIf="isAdmin()">
+      <a routerLink="/usuarios" routerLinkActive="active">Usuarios</a>
+    </li>
+    <li *ngIf="isLoggedIn()">
+      <a href="#" (click)="logout()">Cerrar sesión</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+

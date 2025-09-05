@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>📦 Tabla de Envíos</h2>
+  <button class="btn btn-success" (click)="nuevoEnvio()">➕ Nuevo Envío</button>
+</div>
+
+<div *ngIf="cargando" class="loader">Cargando envíos...</div>
+
+<table class="tabla" *ngIf="!cargando">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Producto</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Dirección</th>
+      <!-- 👇 Solo admin -->
+      <th *ngIf="role === 'admin'">Cliente</th>
+      <th *ngIf="role === 'admin'">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let envio of envios; trackBy: trackById">
+      <td>{{ envio._id }}</td>
+      <td>{{ envio.producto }}</td>
+      <td>
+        <span [ngClass]="{
+          'badge-pendiente': envio.estado === 'pendiente',
+          'badge-camino': envio.estado === 'en camino',
+          'badge-entregado': envio.estado === 'entregado'
+        }">{{ envio.estado }}</span>
+      </td>
+      <td>{{ envio.fechaCreacion | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ envio.direccion }}</td>
+      <!-- 👇 Solo admin -->
+      <td *ngIf="role === 'admin'">{{ envio.userId?.name }}</td>
+      <td *ngIf="role === 'admin'">
+        <button class="btn btn-sm btn-outline-primary" (click)="editarEnvio(envio._id)">✏️</button>
+        <button class="btn btn-sm btn-outline-danger" (click)="eliminarEnvio(envio._id)">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="!cargando && envios.length === 0">🚫 No hay envíos registrados.</p>
+

@@ -1,0 +1,34 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2>🔑 Iniciar Sesión</h2>
+
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <input 
+          type="text" 
+          [(ngModel)]="username" 
+          name="username" 
+          placeholder="📧 Correo electrónico" 
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password" 
+          placeholder="🔒 Contraseña" 
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn-login">Entrar</button>
+      <p *ngIf="error" class="error">{{ error }}</p>
+    </form>
+
+    <p class="register-text">
+      ¿No tienes cuenta? <a routerLink="/register">Regístrate</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+.productos-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 👈 4 columnas */
+  gap: 20px; /* espacio entre cards */
+  width: 100%;
+  max-width: 1200px; /* centrado */
+}
+
+.producto-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.producto-card img {
+  max-width: 100px;
+  margin-bottom: 15px;
+}
+
+.producto-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.producto-card p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.producto-card .precio {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 12px;
+}
+
+.producto-card button {
+  background: #28a745; /* Verde como login */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.producto-card button:hover {
+  background: #1e7e34; /* Verde más oscuro */
+}
+
+
